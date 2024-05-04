@@ -45,11 +45,11 @@ function initializeSnapProgress() {
 
         element.appendChild(baseDiv);
 
-        animateProgress(element, baseDiv, dataValue);
+        animateProgress(element, baseDiv, dataValue, strokeColor, backgroundColor);
     }
 }
 
-function animateProgress(progressElement, baseElement, targetValue) {
+function animateProgress(progressElement, baseElement, targetValue, strokeColor, backgroundColor) {
     let startValue = 0;
     let progress = setInterval(() => {
         if (targetValue == 0) {
@@ -59,7 +59,7 @@ function animateProgress(progressElement, baseElement, targetValue) {
         }
 
         baseElement.textContent = startValue + '%';
-        progressElement.style.background = 'conic-gradient(#ffc400 ' + startValue * 3.6 + 'deg' + ', #ededed 0deg)'
+        progressElement.style.background = `conic-gradient(${strokeColor} ${startValue * 3.6}deg, ${backgroundColor} 0deg)`;
 
         if (startValue == targetValue) {
             clearInterval(progress);
