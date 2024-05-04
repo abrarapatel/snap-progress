@@ -16,6 +16,8 @@ function initializeSnapProgress() {
             dataValue = parseInt(dataValue);
         }
 
+        let strokeSize = element.hasAttribute("data-snap-stroke-size") ? element.getAttribute("data-snap-stroke-size") : "20";
+
         let strokeColor = element.hasAttribute("data-snap-stroke-color") ? element.getAttribute("data-snap-stroke-color") : "#ffc400";
         let backgroundColor = element.hasAttribute("data-snap-background-color") ? element.getAttribute("data-snap-background-color") : "#ededed";
         let baseColor = element.hasAttribute("data-snap-base-color") ? element.getAttribute("data-snap-base-color") : "#fff";
@@ -30,8 +32,8 @@ function initializeSnapProgress() {
 
         var baseDiv = document.createElement("div");
         baseDiv.style.background = baseColor;
-        baseDiv.style.height = "calc(100% - 20px)";
-        baseDiv.style.width = "calc(100% - 20px)";
+        baseDiv.style.height = `calc(100% - ${strokeSize}px)`;
+        baseDiv.style.width = `calc(100% - ${strokeSize}px)`;
         baseDiv.style.position = "absolute";
         baseDiv.style.top = "50%";
         baseDiv.style.left = "50%";
