@@ -1,6 +1,6 @@
-window.onload = function () {
+window.addEventListener('load', function() {
     initializeSnapProgress();
-}
+});
 
 function initializeSnapProgress() {
     const progressElements = document.getElementsByClassName("snap-progress");
