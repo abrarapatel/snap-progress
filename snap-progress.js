@@ -2,15 +2,17 @@ window.addEventListener('load', function () {
     initializeSnapProgress();
 });
 
-function initializeSnapProgress(specificElement = null) {
-    if(specificElement == null) {
-        const progressElements = document.getElementsByClassName("snap-progress");
+function initializeSnapProgress(specificContainer = null) {
+    let progressElements;
 
-        for (let progressIndex = 0; progressIndex < progressElements.length; progressIndex++) {
-            loadInitialsSnapProgress(progressElements[progressIndex]);
-        }
+    if (specificContainer != null) {
+        progressElements = specificContainer.getElementsByClassName("snap-progress");
     } else {
-        loadInitialsSnapProgress(specificElement);
+        progressElements = document.getElementsByClassName("snap-progress");
+    }
+
+    for (let progressIndex = 0; progressIndex < progressElements.length; progressIndex++) {
+        loadInitialsSnapProgress(progressElements[progressIndex]);
     }
 }
 
@@ -58,9 +60,9 @@ function loadInitialsSnapProgress(element) {
 }
 
 function animateSnapProgress(progressElement, baseElement, targetValue, strokeColor, backgroundColor, animationDuration = 0) {
-    if(animationDuration <= 0) {
+    if (animationDuration <= 0) {
         animationDuration = 20;
-    } else if(animationDuration > 80) {
+    } else if (animationDuration > 80) {
         animationDuration = 80;
     }
 
