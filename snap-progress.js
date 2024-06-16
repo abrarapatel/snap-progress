@@ -33,9 +33,40 @@ function loadInitialsSnapProgress(element) {
     let textColor = element.hasAttribute("data-snap-text-color") ? element.getAttribute("data-snap-text-color") : "#000";
     let duration = parseInt(element.hasAttribute("data-snap-animation-duration") ? element.getAttribute("data-snap-animation-duration") : "0");
 
+    let radiusStyle = element.hasAttribute("data-snap-radius-sytle") ? element.getAttribute("data-snap-radius-sytle") : "";
+
+    let radiusValue;
+    switch (radiusStyle) {
+        case "normal":
+            radiusValue = "50%";
+            break;
+        case "square":
+            radiusValue = "8%";
+            break;
+        case "drum":
+            radiusValue = "60% / 20%";
+            break;
+        case "egg-left":
+            radiusValue = "80% 40% 40% 80% / 60% 60% 60% 60%";
+            break;
+        case "egg-right":
+            radiusValue = "40% 80% 80% 40% / 60% 60% 60% 60%";
+            break;
+        case "random":
+            const random1 = Math.floor(Math.random() * 101) + "%";
+            const random2 = Math.floor(Math.random() * 101) + "%";
+            const random3 = Math.floor(Math.random() * 101) + "%";
+            const random4 = Math.floor(Math.random() * 101) + "%";
+            radiusValue = `${random1} ${random2} ${random3} ${random4} / 60% 60% 60% 60%`;
+            break;
+        default:
+            radiusValue = "50%";
+            break;
+    }
+
     element.style.height = "100%";
     element.style.width = "100%";
-    element.style.borderRadius = "50%";
+    element.style.borderRadius = radiusValue;
     element.style.position = "relative";
     element.style.background = `conic-gradient(${strokeColor} 0deg, ${backgroundColor} 0deg)`;
 
@@ -47,7 +78,7 @@ function loadInitialsSnapProgress(element) {
     baseDiv.style.top = "50%";
     baseDiv.style.left = "50%";
     baseDiv.style.transform = "translate(-50%, -50%)";
-    baseDiv.style.borderRadius = "50%";
+    baseDiv.style.borderRadius = radiusValue;
     baseDiv.style.display = "flex";
     baseDiv.style.justifyContent = "center";
     baseDiv.style.alignItems = "center";
