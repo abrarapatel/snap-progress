@@ -57,7 +57,11 @@ function loadInitialsSnapProgress(element) {
             const random2 = Math.floor(Math.random() * 101) + "%";
             const random3 = Math.floor(Math.random() * 101) + "%";
             const random4 = Math.floor(Math.random() * 101) + "%";
-            radiusValue = `${random1} ${random2} ${random3} ${random4} / 60% 60% 60% 60%`;
+            const random5 = Math.floor(Math.random() * 101) + "%";
+            const random6 = Math.floor(Math.random() * 101) + "%";
+            const random7 = Math.floor(Math.random() * 101) + "%";
+            const random8 = Math.floor(Math.random() * 101) + "%";
+            radiusValue = `${random1} ${random2} ${random3} ${random4} / ${random5} ${random6} ${random7} ${random8}`;
             break;
         default:
             radiusValue = "50%";
