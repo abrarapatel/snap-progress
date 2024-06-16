@@ -2,7 +2,12 @@ window.addEventListener('load', function () {
     initializeSnapProgress();
 });
 
-function initializeSnapProgress(specificContainer = null) {
+function initializeSnapProgress(specificContainer = null, specificElement = null, progess) {
+    if (specificElement != null) {
+        loadInitialsSnapProgress(specificElement, progess);
+        return;
+    }
+
     let progressElements;
 
     if (specificContainer != null) {
@@ -12,12 +17,13 @@ function initializeSnapProgress(specificContainer = null) {
     }
 
     for (let progressIndex = 0; progressIndex < progressElements.length; progressIndex++) {
-        loadInitialsSnapProgress(progressElements[progressIndex]);
+        loadInitialsSnapProgress(progressElements[progressIndex], progess);
     }
 }
 
-function loadInitialsSnapProgress(element) {
-    let dataValue = element.hasAttribute("data-snap-value") ? element.getAttribute("data-snap-value") : "0";
+function loadInitialsSnapProgress(element, progess = null) {
+    element.innerHTML = "";
+    let dataValue = progess == null ? (element.hasAttribute("data-snap-value") ? element.getAttribute("data-snap-value") : "0") : progess;
 
     if (dataValue.includes(".")) {
         dataValue = parseFloat(dataValue);
