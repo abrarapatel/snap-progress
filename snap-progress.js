@@ -47,7 +47,10 @@ function loadInitialsSnapProgress(element, progess = null) {
             radiusValue = "50%";
             break;
         case "square":
-            radiusValue = "8%";
+            radiusValue = "0%";
+            break;
+        case "radius-square":
+            radiusValue = "20%";
             break;
         case "drum":
             radiusValue = "60% / 20%";
