@@ -59,14 +59,14 @@ function loadInitialsSnapProgress(element, progess = null) {
             radiusValue = "40% 80% 80% 40% / 60% 60% 60% 60%";
             break;
         case "random":
-            const random1 = Math.floor(Math.random() * 101) + "%";
-            const random2 = Math.floor(Math.random() * 101) + "%";
-            const random3 = Math.floor(Math.random() * 101) + "%";
-            const random4 = Math.floor(Math.random() * 101) + "%";
-            const random5 = Math.floor(Math.random() * 101) + "%";
-            const random6 = Math.floor(Math.random() * 101) + "%";
-            const random7 = Math.floor(Math.random() * 101) + "%";
-            const random8 = Math.floor(Math.random() * 101) + "%";
+            const random1 = Math.floor(Math.random() * dataValue) + "%";
+            const random2 = Math.floor(Math.random() * dataValue) + "%";
+            const random3 = Math.floor(Math.random() * dataValue) + "%";
+            const random4 = Math.floor(Math.random() * dataValue) + "%";
+            const random5 = Math.floor(Math.random() * dataValue) + "%";
+            const random6 = Math.floor(Math.random() * dataValue) + "%";
+            const random7 = Math.floor(Math.random() * dataValue) + "%";
+            const random8 = Math.floor(Math.random() * dataValue) + "%";
             radiusValue = `${random1} ${random2} ${random3} ${random4} / ${random5} ${random6} ${random7} ${random8}`;
             break;
         default:
